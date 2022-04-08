@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulario Gama Academy</title>
+
+	<script >
+		function processar_nome(){
+			var super_nome = document.getElementById("inserir_nome").value;
+			var list_nomes = document.getElementById("lista").innerHTML;
+			if(super_nome != ""){
+				list_nomes = list_nomes+"<li>"+super_nome+"</li>";
+				document.getElementById("lista").innerHTML=list_nomes;
+				document.getElementById("inserir_nome").focus();
+				document.getElementById("inserir_nome").value="";
+			} else {
+				alert("É necessario preencher um nome para continuar.")
+				document.getElementById("inserir_nome").focus();
+			}
+		}
+	</script>
+
+</head>
+<body>
+	<h3 class="input-container"> Sistema de Preenchimento de Informações </h3>
+
+		<label>Entre com o nome desejado:</label>
+		<input type="text" id="inserir_nome" placeholder="Digite o seu nome">
+		<input type="button" onclick="processar_nome()" value="Processar">
+
+	
+	<ul id="lista">
+
+	</ul>
+</body>
+</html>
