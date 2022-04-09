@@ -4,15 +4,20 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Formulario Gama Academy</title>
-
+	<title>Funções Javascript</title>
+	<link rel="stylesheet" href="../css/style.css">
 	<script >
 		function processar_nome(){
 			var super_nome = document.getElementById("inserir_nome").value;
 			var list_nomes = document.getElementById("lista").innerHTML;
+			var todos_nomes = document.getElementById("todos_nomes").innerHTML;
+			
 			if(super_nome != ""){
 				list_nomes = list_nomes+"<li>"+super_nome+"</li>";
 				document.getElementById("lista").innerHTML=list_nomes;
+				todos_nomes = todos_nomes+" "+super_nome;
+				document.getElementById("todos_nomes").innerHTML=todos_nomes;
+
 				document.getElementById("inserir_nome").focus();
 				document.getElementById("inserir_nome").value="";
 			} else {
@@ -20,11 +25,19 @@
 				document.getElementById("inserir_nome").focus();
 			}
 		}
+
+		function mudar_cor(cor){
+			document.body.style.backgroundColor = cor
+			if(cor == "green" || cor == "blue")
+				document.body.style.color = "white"
+			else
+				document.body.style.color = "black"
+		}
 	</script>
 
 </head>
 <body>
-	<h3 class="input-container"> Sistema de Preenchimento de Informações </h3>
+	<h3> Sistema de Preenchimento de Informações </h3>
 
 		<label>Entre com o nome desejado:</label>
 		<input type="text" id="inserir_nome" placeholder="Digite o seu nome">
@@ -34,5 +47,14 @@
 	<ul id="lista">
 
 	</ul>
+
+	<p id="todos_nomes">Todos os nomes cadastrados:</p>
+
+	<div class="buttons">
+		<button id="verde" onclick="mudar_cor('green')"></button>
+		<button id="amarelo" onclick="mudar_cor('yellow')"></button>
+		<button id="vermelho" onclick="mudar_cor('red')"></button>
+		<button id="azul" onclick="mudar_cor('blue')"></button>
+	</div>
 </body>
 </html>
